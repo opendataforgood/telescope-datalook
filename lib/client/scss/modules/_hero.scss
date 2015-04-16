@@ -132,23 +132,31 @@
         }
     }
 
-    .categories-popover {
+    .categories-dropdown {
         float: right;
         padding-right: 23px;
         z-index: 101;
 
-        > a {
+        .dropdown__trigger {
+            padding-right: 0;
+        }
+
+        span > a {
             color: $text-medium;
             cursor: pointer;
+            transition: color .5s;
+
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+
+        .category-list {
+            list-style: none;
         }
 
         @include small {
             display: none;
         }
-
     }
-}
-
-.categories-content {
-    z-index: 99;
 }

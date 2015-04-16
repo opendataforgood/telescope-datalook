@@ -1,19 +1,18 @@
 <template name="d4g_layout">
-  {{> UI.dynamic template=css}}
+  {{> css}}
   <div class="outer-wrapper {{currentPage}} {{navLayout}}">
-    {{> UI.dynamic template=mobile_nav}}
+    {{> mobile_nav}}
     <div class="inner-wrapper template-{{pageName}}">
-      {{> UI.dynamic template=nav}}
+      {{> nav}}
       {{#each heroModules}}
-        {{> UI.dynamic template=getTemplate}}
+        {{> Template.dynamic template=template}}
       {{/each}}
       <div class="content-wrapper">
-        {{> UI.dynamic template=messages}}
+        {{> messages}}
         {{> yield "adminMenu"}}
-        <!-- {{> yield "postListTop"}} -->
         {{> yield}}
       </div>
-      {{> UI.dynamic template=footer}}
+      {{> footer}}
       <div class="overlay hidden"></div>
     </div>
     {{{extraCode}}}

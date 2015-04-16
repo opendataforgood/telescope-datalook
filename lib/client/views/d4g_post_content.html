@@ -8,7 +8,7 @@
     {{> d4g_post_tagline}}
     <div class="post-meta">
       {{#each postMeta}}
-        {{> UI.dynamic template=getTemplate data=..}}
+        {{> Template.dynamic template=template data=..}}
       {{/each}}
     </div>
   </div>

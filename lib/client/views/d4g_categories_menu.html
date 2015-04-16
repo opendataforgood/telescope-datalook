@@ -1,18 +1,20 @@
 <template name="d4g_categories_menu">
-
-  <div class="categories-popover">
-    <a class="drop-target">Categories</a>
-    <div class="categories-content">
-        <ul>
-            {{# each categories ..}}
-              <li>
-                <span>
-                  <a href="{{categoryLink}}">{{name}}</a>
-                </span>
-              </li>
-            {{/each}}
+  <div class="categories-dropdown">
+    {{#dropdownTrigger name="dropdownCategories" }}
+      <span><a>Categories</a></span>
+    {{/dropdownTrigger}}
+    {{#dropdown name="dropdownCategories"}}
+      <div class="categories-content">
+        <ul class="category-list">
+          {{#each categories}}
+            <li class="category-item">
+              <span>
+                <a href="{{categoryLink}}">{{name}}</a>
+              </span>
+            </li>
+          {{/each}}
         </ul>
-    </div>
+      </div>
+    {{/dropdown}}
   </div>
-
 </template>

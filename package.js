@@ -17,8 +17,9 @@ Package.onUse(function (api) {
     'ui',
     'jquery',
     'bengott:avatar',
-    'jeremy:velocity-animate',
     'dburles:google-maps',
+    'lookback:dropdowns',
+    'jeremy:velocity-animate',
     'jeremy:geocomplete',
     'jeremy:telescope-plugin-hero'
     ], 'client');
@@ -35,6 +36,7 @@ Package.onUse(function (api) {
     'aldeed:collection2',
     'aldeed:simple-schema',
     'aldeed:autoform',
+    'aldeed:template-extension',
     'meteorhacks:npm',
     'meteorhacks:fast-render',
     'meteorhacks:subs-manager',
@@ -43,6 +45,10 @@ Package.onUse(function (api) {
     ], ['client', 'server']);
 
   api.use('cmather:handlebars-server');
+
+  api.imply([
+    'dburles:google-maps'
+  ]);
 
   var path = Npm.require('path'),
       asset_path = path.join('lib/client');
@@ -61,9 +67,6 @@ Package.onUse(function (api) {
     path.join(asset_path, 'fonts', 'icomoon.svg'),
     path.join(asset_path, 'fonts', 'icomoon.woff'),
 
-    // Vendor
-    'lib/client/vendor/drop.js',
-
     // Config
     'lib/client/config/avatar.js',
 
@@ -79,15 +82,12 @@ Package.onUse(function (api) {
 
     // Templates
     'lib/client/views/main.html',
-    'lib/client/views/custom_templates.js',
     'lib/client/views/d4g_atForm.js',
     'lib/client/views/d4g_nav.html',
     'lib/client/views/d4g_search.html',
     'lib/client/views/d4g_userMenu.html',
     'lib/client/views/d4g_categories_menu.html',
     'lib/client/views/d4g_categories_menu.js',
-    'lib/client/views/d4g_posts_list.html',
-    'lib/client/views/d4g_posts_list.js',
     'lib/client/views/d4g_postAuthor.html',
     'lib/client/views/d4g_postInfo.html',
     'lib/client/views/d4g_postUpvote.html',
@@ -110,6 +110,7 @@ Package.onUse(function (api) {
     'lib/client/views/d4g_newsletterBanner.html',
     'lib/client/views/d4g_newsletter_signup.html',
     'lib/client/views/d4g_newsletter_signup.js',
+    'lib/client/views/custom_templates.js',
     'lib/client/views/d4g_map.html',
 
     // Pages
@@ -160,7 +161,9 @@ Package.onUse(function (api) {
   */
   api.export([
     'Notify',
-    'Praises'
+    'Praises',
+    'heroModules',
+    'userProfileEdit'
   ]);
 
 });

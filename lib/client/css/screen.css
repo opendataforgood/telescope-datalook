@@ -95,8 +95,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 135, ../scss/helpers/_mixins.scss */
-.template-d4g_user_edit .content-wrapper,
-.template-d4g_user_profile .content-wrapper,
+.template-user_edit .content-wrapper,
+.template-user_profile .content-wrapper,
 .template-settingsForm .content-wrapper, .template-about .content-wrapper, .template-press .content-wrapper {
   background: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.15);
@@ -106,8 +106,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 @media screen and (max-width: 40em) {
   /* line 135, ../scss/helpers/_mixins.scss */
-  .template-d4g_user_edit .content-wrapper,
-  .template-d4g_user_profile .content-wrapper,
+  .template-user_edit .content-wrapper,
+  .template-user_profile .content-wrapper,
   .template-settingsForm .content-wrapper, .template-about .content-wrapper, .template-press .content-wrapper {
     padding: 1em 2em 3em 2em;
   }
@@ -1448,328 +1448,211 @@ li.comment {
   text-align: center;
 }
 
-/* line 1, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown {
-  position: relative;
-}
-/* line 5, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown > a:after {
-  display: inline-block;
-  position: relative;
-  top: -1px;
-  margin-left: 4px;
-  content: "▼";
-  font-size: 8px;
-}
-/* line 16, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* line 22, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown-menu {
-  display: none;
-  top: 10px;
-  left: 10px;
-  position: absolute;
-  padding-top: 20px;
-  z-index: 10000;
-}
-/* line 30, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown-menu, .has-dropdown .dropdown-menu a, .has-dropdown .dropdown-menu a:link, .has-dropdown .dropdown-menu a:visited {
-  color: #3c3c3c;
-}
-/* line 34, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown-menu a.button {
-  color: white;
-}
-/* line 38, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown-menu ul {
-  background: white;
-  padding: 10px;
-  min-width: 140px;
-  border-radius: 3px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-  list-style-type: none;
-}
-/* line 46, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown-menu ul li {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-/* line 50, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown-menu ul li:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-/* line 56, ../scss/modules/_dropdown.scss */
-.has-dropdown .dropdown-menu ul li a {
-  font-size: 14px;
-}
-
-/*
-*  Standard Menu Dropdowns (bounce popover with arrows)
-*/
-/* line 67, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce {
-  max-width: 100%;
-  max-height: 100%;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  -webkit-transition: opacity .1s;
-          transition: opacity .1s;
-  opacity: 0;
+/* line 6, ../scss/modules/_dropdown.scss */
+.dropdown {
   z-index: 101;
 }
-/* line 75, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce .drop-content {
+
+/* line 72, ../scss/modules/_dropdown.scss */
+.dropdown-container {
   position: relative;
-  font-family: inherit;
-  background: #fff;
-  color: #444;
-  padding: 1em;
-  font-size: 1.1em;
-  line-height: 1.5em;
-  -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
-          filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.265, 1.55);
-          transition: transform 0.3s cubic-bezier(0, 0, 0.265, 1.55);
-  -webkit-transform: scale(0) translateZ(0);
-          transform: scale(0) translateZ(0);
 }
-/* line 87, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce .drop-content:before {
-  content: "";
+
+/* line 76, ../scss/modules/_dropdown.scss */
+.dropdown {
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 1rem;
+  z-index: 1001;
+  min-width: 150px;
+  -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
+          transform-origin: center top;
+  border: 1px solid #dadada;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px, rgba(0, 0, 0, 0.08) 0 4px 20px;
+  top: 120%;
+}
+/* line 91, ../scss/modules/_dropdown.scss */
+.dropdown.dropdown--tight {
+  padding: 0;
+  border: 0;
+}
+/* line 96, ../scss/modules/_dropdown.scss */
+.dropdown[data-dropdown-align="right"] {
+  text-align: right;
+}
+/* line 100, ../scss/modules/_dropdown.scss */
+.dropdown[data-dropdown-align="right"] .dropdown__arrow {
+  right: 1rem;
+  left: auto;
+}
+/* line 106, ../scss/modules/_dropdown.scss */
+.dropdown[data-dropdown-align="left"] {
+  text-align: left;
+}
+/* line 110, ../scss/modules/_dropdown.scss */
+.dropdown[data-dropdown-align="left"] .dropdown__arrow {
+  left: 1rem;
+}
+/* line 115, ../scss/modules/_dropdown.scss */
+.dropdown p {
+  margin: 0;
+}
+/* line 119, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__scroller {
+  overflow-y: scroll;
+  max-height: 71vh;
+}
+/* line 124, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__show-more {
+  color: #555;
+  font-size: to_rem(12);
+  font-weight: 500;
+}
+/* line 129, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__show-more:hover, .dropdown .dropdown__show-more:hover .icon {
+  color: #c0392b;
+}
+/* line 134, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__show-more:hover .icon {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+/* line 138, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__show-more .icon {
+  color: #999;
+  position: relative;
+  top: 2px;
+  -webkit-transition: -webkit-transform .2s ease-out;
+          transition: transform .2s ease-out;
+}
+/* line 146, ../scss/modules/_dropdown.scss */
+.dropdown.dropdown--menu {
+  padding: 3px 0;
+  font-size: .9rem;
+}
+/* line 150, ../scss/modules/_dropdown.scss */
+.dropdown.dropdown--menu .no-content {
+  font-size: .9rem;
+  margin: .5rem;
+  text-align: center;
+  color: #888;
+}
+/* line 158, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu, .dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 163, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu [role="menuItem"], .dropdown ul [role="menuItem"] {
+  width: 100%;
+}
+/* line 166, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu [role="menuItem"].dropdown__separator, .dropdown ul [role="menuItem"].dropdown__separator {
+  border-top: 1px solid #f0f0f0;
+  padding-top: .5em;
+  margin-top: .6em;
+}
+/* line 173, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu [role="menuItem"].selected a,
+.dropdown .dropdown__menu [role="menuItem"].selected a:hover,
+.dropdown .dropdown__menu [role="menuItem"].selected a:active,
+.dropdown .dropdown__menu [role="menuItem"].selected a:focus, .dropdown ul [role="menuItem"].selected a,
+.dropdown ul [role="menuItem"].selected a:hover,
+.dropdown ul [role="menuItem"].selected a:active,
+.dropdown ul [role="menuItem"].selected a:focus {
+  color: #999;
+  cursor: default;
+  background: none;
+}
+/* line 182, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu [role="menuItem"].selected .icon, .dropdown ul [role="menuItem"].selected .icon {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  font-size: .9em;
+}
+/* line 190, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu [role="menuItem"] a, .dropdown ul [role="menuItem"] a {
+  display: inline-block;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   display: block;
+  padding: .3em 1em;
+  position: relative;
+  color: #565656;
+}
+/* line 197, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu [role="menuItem"] a:hover, .dropdown .dropdown__menu [role="menuItem"] a:focus, .dropdown ul [role="menuItem"] a:hover, .dropdown ul [role="menuItem"] a:focus {
+  text-decoration: none;
+  color: #c0392b;
+  outline: 0;
+  background-color: rgba(238, 238, 238, 0.4);
+}
+/* line 205, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__menu [role="menuItem"] a:active, .dropdown ul [role="menuItem"] a:active {
+  background-color: rgba(238, 238, 238, 0.7);
+}
+/* line 212, ../scss/modules/_dropdown.scss */
+.dropdown input[type="search"].dropdown__filter {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  padding: 6px 6px 8px;
+  border-bottom: 1px solid #e9e9e9;
+  border-radius: 0;
+}
+/* line 221, ../scss/modules/_dropdown.scss */
+.dropdown input[type="search"].dropdown__filter:focus {
+  outline: 0;
+}
+/* line 226, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__arrow {
+  left: calc(50% - 6px);
+  top: -6px;
   position: absolute;
   width: 0;
   height: 0;
-  border-color: transparent;
-  border-width: 12px;
-  border-style: solid;
+  border: solid transparent;
+  border-width: 0 6px 6px 6px;
+  border-bottom-color: #dadada;
+  z-index: 10;
 }
-/* line 98, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce .drop-content ul {
-  list-style: none;
-  padding: 0 1em 0 1em;
-  margin: 0;
-}
-/* line 105, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-open {
-  display: none;
-}
-/* line 109, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-open-transitionend {
-  display: block;
-}
-/* line 113, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-after-open {
-  -webkit-transition: none;
-          transition: none;
-  opacity: 1;
-}
-/* line 117, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-after-open .drop-content {
-  -webkit-transform: scale(1) translateZ(0);
-          transform: scale(1) translateZ(0);
-}
-/* line 122, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-center .drop-content {
-  margin-bottom: 12px;
-}
-/* line 125, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-center .drop-content:before {
-  top: 100%;
-  left: 50%;
-  margin-left: -12px;
-  border-top-color: #fff;
-}
-/* line 133, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-center .drop-content {
-  margin-top: 12px;
-}
-/* line 136, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-center .drop-content:before {
-  bottom: 100%;
-  left: 50%;
-  margin-left: -12px;
+/* line 234, ../scss/modules/_dropdown.scss */
+.dropdown .dropdown__arrow::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  border-width: 0 7px 7px 7px;
   border-bottom-color: #fff;
+  left: calc(50% - 7px);
+  top: 1px;
+  z-index: 9;
 }
-/* line 144, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-right.drop-element-attached-middle .drop-content {
-  margin-right: 12px;
+
+/* line 247, ../scss/modules/_dropdown.scss */
+.dropdown__trigger:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
-/* line 147, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-right.drop-element-attached-middle .drop-content:before {
-  left: 100%;
-  top: 50%;
-  margin-top: -12px;
-  border-left-color: #fff;
-}
-/* line 155, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-left.drop-element-attached-middle .drop-content {
-  margin-left: 12px;
-}
-/* line 158, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-left.drop-element-attached-middle .drop-content:before {
-  right: 100%;
-  top: 50%;
-  margin-top: -12px;
-  border-right-color: #fff;
-}
-/* line 168, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-left.drop-target-attached-bottom .drop-content {
-  margin-top: 12px;
-}
-/* line 171, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-left.drop-target-attached-bottom .drop-content:before {
-  bottom: 100%;
-  left: 12px;
-  border-bottom-color: #fff;
-}
-/* line 178, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-right.drop-target-attached-bottom .drop-content {
-  margin-top: 12px;
-}
-/* line 181, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-right.drop-target-attached-bottom .drop-content:before {
-  bottom: 100%;
-  right: 12px;
-  border-bottom-color: #fff;
-}
-/* line 191, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-left.drop-target-attached-top .drop-content {
-  margin-bottom: 12px;
-}
-/* line 194, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-left.drop-target-attached-top .drop-content:before {
-  top: 100%;
-  left: 12px;
-  border-top-color: #fff;
-}
-/* line 201, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-right.drop-target-attached-top .drop-content {
-  margin-bottom: 12px;
-}
-/* line 204, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-right.drop-target-attached-top .drop-content:before {
-  top: 100%;
-  right: 12px;
-  border-top-color: #fff;
-}
-/* line 214, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-right.drop-target-attached-left .drop-content {
-  margin-right: 12px;
-}
-/* line 217, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-right.drop-target-attached-left .drop-content:before {
-  top: 12px;
-  left: 100%;
-  border-left-color: #fff;
-}
-/* line 224, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-left.drop-target-attached-right .drop-content {
-  margin-left: 12px;
-}
-/* line 227, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-left.drop-target-attached-right .drop-content:before {
-  top: 12px;
-  right: 100%;
-  border-right-color: #fff;
-}
-/* line 236, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-right.drop-target-attached-left .drop-content {
-  margin-right: 12px;
-}
-/* line 239, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-right.drop-target-attached-left .drop-content:before {
-  bottom: 12px;
-  left: 100%;
-  border-left-color: #fff;
-}
-/* line 245, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-left.drop-target-attached-right .drop-content {
-  margin-left: 12px;
-}
-/* line 248, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-left.drop-target-attached-right .drop-content:before {
-  bottom: 12px;
-  right: 100%;
-  border-right-color: #fff;
+/* line 251, ../scss/modules/_dropdown.scss */
+.dropdown__trigger:hover [class*="icon-arrow"] {
+  fill: #c0392b;
 }
 /* line 256, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-center .drop-content {
-  -webkit-transform-origin: 50% calc(100% + 12px);
-      -ms-transform-origin: 50% calc(100% + 12px);
-          transform-origin: 50% calc(100% + 12px);
-}
-/* line 260, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-center .drop-content {
-  -webkit-transform-origin: 50% -12px;
-      -ms-transform-origin: 50% -12px;
-          transform-origin: 50% -12px;
-}
-/* line 264, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-right.drop-element-attached-middle .drop-content {
-  -webkit-transform-origin: calc(100% + 12px) 50%;
-      -ms-transform-origin: calc(100% + 12px) 50%;
-          transform-origin: calc(100% + 12px) 50%;
-}
-/* line 268, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-left.drop-element-attached-middle .drop-content {
-  -webkit-transform-origin: -12px 50%;
-      -ms-transform-origin: -12px 50%;
-          transform-origin: -12px 50%;
-}
-/* line 274, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-left.drop-target-attached-bottom .drop-content {
-  -webkit-transform-origin: 0 -12px;
-      -ms-transform-origin: 0 -12px;
-          transform-origin: 0 -12px;
-}
-/* line 278, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-right.drop-target-attached-bottom .drop-content {
-  -webkit-transform-origin: 100% -12px;
-      -ms-transform-origin: 100% -12px;
-          transform-origin: 100% -12px;
-}
-/* line 285, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-left.drop-target-attached-top .drop-content {
-  -webkit-transform-origin: 0 calc(100% + 12px);
-      -ms-transform-origin: 0 calc(100% + 12px);
-          transform-origin: 0 calc(100% + 12px);
-}
-/* line 289, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-right.drop-target-attached-top .drop-content {
-  -webkit-transform-origin: 100% calc(100% + 12px);
-      -ms-transform-origin: 100% calc(100% + 12px);
-          transform-origin: 100% calc(100% + 12px);
-}
-/* line 296, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-right.drop-target-attached-left .drop-content {
-  -webkit-transform-origin: calc(100% + 12px) 0;
-      -ms-transform-origin: calc(100% + 12px) 0;
-          transform-origin: calc(100% + 12px) 0;
-}
-/* line 300, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-top.drop-element-attached-left.drop-target-attached-right .drop-content {
-  -webkit-transform-origin: -12px 0;
-      -ms-transform-origin: -12px 0;
-          transform-origin: -12px 0;
-}
-/* line 307, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-right.drop-target-attached-left .drop-content {
-  -webkit-transform-origin: calc(100% + 12px) 100%;
-      -ms-transform-origin: calc(100% + 12px) 100%;
-          transform-origin: calc(100% + 12px) 100%;
-}
-/* line 311, ../scss/modules/_dropdown.scss */
-.drop-element.drop-theme-arrows-bounce.drop-element-attached-bottom.drop-element-attached-left.drop-target-attached-right .drop-content {
-  -webkit-transform-origin: -12px 100%;
-      -ms-transform-origin: -12px 100%;
-          transform-origin: -12px 100%;
+.dropdown__trigger [class*="icon-arrow"] {
+  margin-left: .2rem;
+  position: relative;
+  top: 3px;
+  -webkit-transition: -webkit-transform .3s ease-out, fill .2s ease-out;
+          transition: transform .3s ease-out, fill .2s ease-out;
 }
 
 /* line 2, ../scss/modules/_footer.scss */
@@ -2400,26 +2283,35 @@ div.at-error p {
   color: #65aece;
 }
 /* line 135, ../scss/modules/_hero.scss */
-.sort-links .categories-popover {
+.sort-links .categories-dropdown {
   float: right;
   padding-right: 23px;
   z-index: 101;
 }
 /* line 140, ../scss/modules/_hero.scss */
-.sort-links .categories-popover > a {
+.sort-links .categories-dropdown .dropdown__trigger {
+  padding-right: 0;
+}
+/* line 144, ../scss/modules/_hero.scss */
+.sort-links .categories-dropdown span > a {
   color: #6f6f6f;
   cursor: pointer;
+  -webkit-transition: color .5s;
+          transition: color .5s;
+}
+/* line 149, ../scss/modules/_hero.scss */
+.sort-links .categories-dropdown span > a:hover {
+  color: #8cc2da;
+}
+/* line 154, ../scss/modules/_hero.scss */
+.sort-links .categories-dropdown .category-list {
+  list-style: none;
 }
 @media screen and (max-width: 40em) {
   /* line 135, ../scss/modules/_hero.scss */
-  .sort-links .categories-popover {
+  .sort-links .categories-dropdown {
     display: none;
   }
-}
-
-/* line 152, ../scss/modules/_hero.scss */
-.categories-content {
-  z-index: 99;
 }
 
 @font-face {
@@ -3378,120 +3270,120 @@ a.post-category.category-jobs {
 *  Post submit/edit pages
 */
 /* line 600, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .content-wrapper,
-.template-d4g_post_edit .content-wrapper {
+.template-post_submit .content-wrapper,
+.template-post_edit .content-wrapper {
   max-width: 700px;
   padding: 3em 0;
 }
 /* line 605, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .grid-block, .template-d4g_post_submit .comment-content, .template-d4g_post_submit .comment-new, .template-d4g_post_submit .error, .template-d4g_post_submit .at-error,
-.template-d4g_post_edit .grid-block,
-.template-d4g_post_edit .comment-content,
-.template-d4g_post_edit .comment-new,
-.template-d4g_post_edit .error,
-.template-d4g_post_edit .at-error {
+.template-post_submit .grid-block, .template-post_submit .comment-content, .template-post_submit .comment-new, .template-post_submit .error, .template-post_submit .at-error,
+.template-post_edit .grid-block,
+.template-post_edit .comment-content,
+.template-post_edit .comment-new,
+.template-post_edit .error,
+.template-post_edit .at-error {
   background: none;
   box-shadow: none;
 }
 /* line 610, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .error,
-.template-d4g_post_edit .error {
+.template-post_submit .error,
+.template-post_edit .error {
   background: #dd3416;
 }
 /* line 614, ../scss/modules/_posts.scss */
-.template-d4g_post_submit h2,
-.template-d4g_post_edit h2 {
+.template-post_submit h2,
+.template-post_edit h2 {
   text-transform: none;
   text-align: center;
 }
 @media screen and (max-width: 50em) {
   /* line 614, ../scss/modules/_posts.scss */
-  .template-d4g_post_submit h2,
-  .template-d4g_post_edit h2 {
+  .template-post_submit h2,
+  .template-post_edit h2 {
     font-size: 2.82715em;
     line-height: 0.53057;
   }
 }
 /* line 623, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .control-group, .template-d4g_post_submit .form-group,
-.template-d4g_post_edit .control-group,
-.template-d4g_post_edit .form-group {
+.template-post_submit .control-group, .template-post_submit .form-group,
+.template-post_edit .control-group,
+.template-post_edit .form-group {
   margin-bottom: 2.5em;
 }
 /* line 626, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .control-group > label, .template-d4g_post_submit .form-group > label,
-.template-d4g_post_edit .control-group > label,
-.template-d4g_post_edit .form-group > label {
+.template-post_submit .control-group > label, .template-post_submit .form-group > label,
+.template-post_edit .control-group > label,
+.template-post_edit .form-group > label {
   font-size: 1.4em;
   font-weight: bold;
 }
 /* line 631, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .control-group input[type="text"], .template-d4g_post_submit .form-group input[type="text"],
-.template-d4g_post_edit .control-group input[type="text"],
-.template-d4g_post_edit .form-group input[type="text"] {
+.template-post_submit .control-group input[type="text"], .template-post_submit .form-group input[type="text"],
+.template-post_edit .control-group input[type="text"],
+.template-post_edit .form-group input[type="text"] {
   padding-left: 1em;
 }
 /* line 635, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .control-group .helper-text, .template-d4g_post_submit .form-group .helper-text,
-.template-d4g_post_edit .control-group .helper-text,
-.template-d4g_post_edit .form-group .helper-text {
+.template-post_submit .control-group .helper-text, .template-post_submit .form-group .helper-text,
+.template-post_edit .control-group .helper-text,
+.template-post_edit .form-group .helper-text {
   font-size: .65em;
   font-weight: normal;
   color: #b3b3b3;
   margin-left: .5em;
 }
 /* line 641, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .control-group .helper-text a, .template-d4g_post_submit .form-group .helper-text a,
-.template-d4g_post_edit .control-group .helper-text a,
-.template-d4g_post_edit .form-group .helper-text a {
+.template-post_submit .control-group .helper-text a, .template-post_submit .form-group .helper-text a,
+.template-post_edit .control-group .helper-text a,
+.template-post_edit .form-group .helper-text a {
   color: #b3b3b3;
   font-weight: normal;
   text-decoration: underline;
 }
 /* line 649, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .selectize-control.multi .selectize-input,
-.template-d4g_post_edit .selectize-control.multi .selectize-input {
+.template-post_submit .selectize-control.multi .selectize-input,
+.template-post_edit .selectize-control.multi .selectize-input {
   border-radius: 1px;
 }
 /* line 652, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .selectize-control.multi .selectize-input [data-value],
-.template-d4g_post_submit .selectize-control.multi .selectize-input [data-value].active,
-.template-d4g_post_edit .selectize-control.multi .selectize-input [data-value],
-.template-d4g_post_edit .selectize-control.multi .selectize-input [data-value].active {
+.template-post_submit .selectize-control.multi .selectize-input [data-value],
+.template-post_submit .selectize-control.multi .selectize-input [data-value].active,
+.template-post_edit .selectize-control.multi .selectize-input [data-value],
+.template-post_edit .selectize-control.multi .selectize-input [data-value].active {
   background-color: #8cc2da !important;
   background-image: none;
   border: none;
   text-shadow: none;
 }
 /* line 660, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .selectize-control.multi .selectize-input > div,
-.template-d4g_post_edit .selectize-control.multi .selectize-input > div {
+.template-post_submit .selectize-control.multi .selectize-input > div,
+.template-post_edit .selectize-control.multi .selectize-input > div {
   border: none;
   padding: 5px;
 }
 /* line 668, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .categories-field .control-label,
-.template-d4g_post_edit .categories-field .control-label {
+.template-post_submit .categories-field .control-label,
+.template-post_edit .categories-field .control-label {
   border-bottom: 1px solid #b3b3b3;
   margin: 1.5em -.1em 1em -.2em;
   padding-left: .7em;
   padding-bottom: .2em;
 }
 /* line 678, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .post-created-meta h4,
-.template-d4g_post_edit .post-created-meta h4 {
+.template-post_submit .post-created-meta h4,
+.template-post_edit .post-created-meta h4 {
   font-size: 1.4em;
   text-transform: none;
   margin: 0 1em .5em 0;
 }
 /* line 685, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .form-actions,
-.template-d4g_post_edit .form-actions {
+.template-post_submit .form-actions,
+.template-post_edit .form-actions {
   margin-top: 3em;
 }
 /* line 688, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .form-actions .delete-link,
-.template-d4g_post_edit .form-actions .delete-link {
+.template-post_submit .form-actions .delete-link,
+.template-post_edit .form-actions .delete-link {
   display: block;
   padding: 7px 12px;
   background: #c73b49;
@@ -3501,21 +3393,21 @@ a.post-category.category-jobs {
           transition: background .7s;
 }
 /* line 696, ../scss/modules/_posts.scss */
-.template-d4g_post_submit .form-actions .delete-link:hover,
-.template-d4g_post_edit .form-actions .delete-link:hover {
+.template-post_submit .form-actions .delete-link:hover,
+.template-post_edit .form-actions .delete-link:hover {
   background: #a12e3a;
 }
 @media screen and (max-width: 40em) {
   /* line 688, ../scss/modules/_posts.scss */
-  .template-d4g_post_submit .form-actions .delete-link,
-  .template-d4g_post_edit .form-actions .delete-link {
+  .template-post_submit .form-actions .delete-link,
+  .template-post_edit .form-actions .delete-link {
     margin: 1em auto;
   }
 }
 @media screen and (max-width: 40em) {
   /* line 705, ../scss/modules/_posts.scss */
-  .template-d4g_post_submit .form-actions .button,
-  .template-d4g_post_edit .form-actions .button {
+  .template-post_submit .form-actions .button,
+  .template-post_edit .form-actions .button {
     padding: 10px 85px;
     float: none;
     margin: 1em auto;
@@ -3523,8 +3415,8 @@ a.post-category.category-jobs {
 }
 
 /* line 10, ../scss/modules/_profile.scss */
-.template-d4g_user_edit hr,
-.template-d4g_user_profile hr,
+.template-user_edit hr,
+.template-user_profile hr,
 .template-settingsForm hr {
   margin: 4em 0 2.5em 0;
   color: #b3b3b3;
@@ -3532,12 +3424,12 @@ a.post-category.category-jobs {
 }
 
 /* line 19, ../scss/modules/_profile.scss */
-.template-d4g_user_profile .edit-profile {
+.template-user_profile .edit-profile {
   float: right;
   margin-top: 1.5em;
 }
 /* line 23, ../scss/modules/_profile.scss */
-.template-d4g_user_profile .edit-profile a {
+.template-user_profile .edit-profile a {
   font-weight: 400;
   padding: 7px;
   border: 2px solid #65aece;
@@ -3546,7 +3438,7 @@ a.post-category.category-jobs {
           transition: all .5s;
 }
 /* line 34, ../scss/modules/_profile.scss */
-.template-d4g_user_profile .profile .avatar {
+.template-user_profile .profile .avatar {
   margin-top: -20px;
   width: 150px;
   height: 150px;
@@ -3555,19 +3447,24 @@ a.post-category.category-jobs {
 }
 
 /* line 47, ../scss/modules/_profile.scss */
-.template-d4g_user_edit .pw-change {
+.template-user_edit .pw-change {
   margin-bottom: 2em;
 }
 /* line 50, ../scss/modules/_profile.scss */
-.template-d4g_user_edit .pw-change h4 {
+.template-user_edit .pw-change h4 {
   text-decoration: underline;
 }
 
 /* line 1, ../scss/modules/_search.scss */
+.search .search-field {
+  color: #6f6f6f;
+}
+
+/* line 5, ../scss/modules/_search.scss */
 .search-date-header {
   background: #e7eff2;
 }
-/* line 4, ../scss/modules/_search.scss */
+/* line 8, ../scss/modules/_search.scss */
 .search-date-header th {
   /* For modern browsers */
   /* For IE 6/7 (trigger hasLayout) */
@@ -3582,13 +3479,13 @@ a.post-category.category-jobs {
 .search-date-header th:after {
   clear: both;
 }
-/* line 8, ../scss/modules/_search.scss */
+/* line 12, ../scss/modules/_search.scss */
 .search-date-header .search-date {
   display: block;
   float: left;
   font-weight: bold;
 }
-/* line 14, ../scss/modules/_search.scss */
+/* line 18, ../scss/modules/_search.scss */
 .search-date-header .search-count {
   font-size: 13px;
   display: block;
@@ -3876,13 +3773,13 @@ a.mt-share-inline-square-sm {
 */
 @media screen and (min-width: 40em) {
   /* line 110, ../scss/modules/_users.scss */
-  .template-d4g_user_edit .control-group > label {
+  .template-user_edit .control-group > label {
     float: left;
   }
 }
 @media screen and (min-width: 40em) {
   /* line 117, ../scss/modules/_users.scss */
-  .template-d4g_user_edit .control-group .controls, .template-d4g_user_edit .control-group .note {
+  .template-user_edit .control-group .controls, .template-user_edit .control-group .note {
     margin-left: 200px;
   }
 }
